@@ -77,16 +77,217 @@
 
 
 	<section class="trading-view">
-		<div class="container">
+		<div class="container-no-padding">		
 			<div class="row">
-				<div class="col-lg-8">
-					
+				<div class="trading__chart col-lg-6">
+					<div class="tradingview-widget-container" style="height: calc(100% - 32px); width: 100%;">
+				        <div class="tradingview-widget-container__widget" style="height: 100%; width: 100%;"></div>
+						
+						<script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js" async>
+				            {
+				                "autosize": true,
+						        "symbol": "BINANCE:BTCUSDT",
+						        "timezone": "Etc/UTC",
+						        "theme": "dark",
+						        "style": "1",
+						        "locale": "en",
+						        "backgroundColor": "#20252B",
+						        "range": "YTD",
+						        "hide_side_toolbar": false,
+						        "allow_symbol_change": true,
+						        "calendar": false,
+						        "support_host": "https://www.tradingview.com"
+						    }
+					    </script>
+				    </div>
 				</div>
-				<div class="col-lg-2">
-					<p>hello</p>
+				<div class="mt-lg-0 trading__order__book col-lg-3">
+					<div class="trading__order">
+						<div class="trading__order__nav">
+							<div class="order__book">
+								<p>order book</p>
+							</div>
+							<div class="recent__trades">
+								<p>recent trades</p>
+							</div>
+						</div>
+					</div>
+					<div class="trading__filter">
+						<ul class="image__list">
+							<li class="image__list__active"><img src="assets/img/topinfo/order1.png" alt="" /></li>
+							<li><img src="assets/img/topinfo/order2.png" alt="" /></li>
+							<li><img src="assets/img/topinfo/order3.png" alt="" /></li>
+						</ul>
+
+						<div class="number__selection">
+					        <select>
+					            <option value="1">1</option>
+					            <option value="2">2</option>
+					            <option value="3">3</option>
+					        </select>
+					    </div>
+					</div>
+					<table class="trading__data">
+					    <thead>
+					        <tr>
+					            <th>price <br /><span>(usdt)</span></th>
+					            <th>amounts <br /><span>(btc)</span></th>
+					            <th>total</th>
+					        </tr>
+					    </thead>
+					    <tbody>
+					        <tr>
+					            <td class="sell__price">36920.12</td>
+					            <td>0.758965</td>
+					            <td>28,020.98</td>
+					        </tr>
+					        <tr>
+					            <td class="sell__price">36920.12</td>
+					            <td>0.758965</td>
+					            <td>28,020.98</td>
+					        </tr>
+					        <tr>
+					            <td class="sell__price">36920.12</td>
+					            <td>0.758965</td>
+					            <td>28,020.98</td>
+					        </tr>
+					        <tr>
+					            <td class="sell__price">36920.12</td>
+					            <td>0.758965</td>
+					            <td>28,020.98</td>
+					        </tr>
+					        <tr class="last__highlight">
+					            <td class="sell__price">36920.12</td>
+					            <td>0.758965</td>
+					            <td>28,020.98</td>
+					        </tr>
+					    </tbody>
+					</table>
+
+					<div>
+						<table class="trading__data data__break">
+						    <thead>
+						    	<tr>
+						            <td class="buy__price">36,920.20</td>
+						            <td><img src="assets/img/topinfo/green-arrow.png" alt="" /></td>
+						            <td class="buy__price">36,641.20</td>
+						        </tr>
+						    </thead>
+						</table>
+					</div>
+
+					<table class="trading__data">
+					    <thead>
+					        <tr>
+					            <th>price <br /><span>(usdt)</span></th>
+					            <th>amounts <br /><span>(btc)</span></th>
+					            <th>total</th>
+					        </tr>
+					    </thead>
+					    <tbody>
+					        <tr>
+					            <td class="buy__price">36920.12</td>
+					            <td>0.758965</td>
+					            <td>28,020.98</td>
+					        </tr>
+					        <tr>
+					            <td class="buy__price">36920.12</td>
+					            <td>0.758965</td>
+					            <td>28,020.98</td>
+					        </tr>
+					        <tr>
+					            <td class="buy__price">36920.12</td>
+					            <td>0.758965</td>
+					            <td>28,020.98</td>
+					        </tr>
+					        <tr>
+					            <td class="buy__price">36920.12</td>
+					            <td>0.758965</td>
+					            <td>28,020.98</td>
+					        </tr>
+					        <tr>
+					            <td class="buy__price">36920.12</td>
+					            <td>0.758965</td>
+					            <td>28,020.98</td>
+					        </tr>
+					    </tbody>
+					</table>
+
 				</div>
-				<div class="col-lg-2">
-					<p>hello</p>
+				<div class="trading__buy col-lg-3">
+					<div class="trading__order">
+						<div class="trading__order__nav">
+							<div class="order__book">
+								<p>buy</p>
+							</div>
+							<div class="recent__trades">
+								<p>sell</p>
+							</div>
+						</div>
+					</div>
+
+					<div class="trading__action">
+						<ul>
+							<li><a class="trading__action__active" href="#">limit</a></li>
+							<li><a href="#">market</a></li>
+							<li><a href="#">stop-limit</a></li>
+						</ul>
+					</div>
+
+					<div>
+						<form>
+							<input type="number" placeholder="limit price" />
+							<input type="number" placeholder="amount" />
+							<input type="number" placeholder="type" />
+							<checkbox />
+							<p>post only</p>
+
+							<p>total</p>
+							<p>0.00</p>
+
+							<button>buy btc</button>
+						</form>
+
+						<div>
+
+							<table class="trading__data data__break">
+							    <thead>
+							    	<tr>
+							            <td class="buy__price">total account value</td>
+							            <td>
+							            	<select>
+								            	<option value="1">1</option>
+									            <option value="2">2</option>
+									            <option value="3">3</option>
+									        </select>
+									    </td>
+							        </tr>
+							        <tr>
+							            <td class="buy__price">open orders</td>
+							            <td>
+							            	<select>
+								            	<option value="1">1</option>
+									            <option value="2">2</option>
+									            <option value="3">3</option>
+									        </select>
+									    </td>
+							        </tr>
+
+							        <button>deposit</button>
+							    </thead>
+							</table>
+
+							<div>
+								<p>total avenue value</p>
+								
+						    </div>
+						    <p>0.00</p>
+						    <div>
+						    	<p>open orders</p>
+						    	<
+						    </div>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>

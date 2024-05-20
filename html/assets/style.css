@@ -1,9 +1,12 @@
+body {
+    background-color: #1C2127;
+}
+
 nav {
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 10px 20px;
-    background-color: #1C2127;
     border-bottom: 1px solid #A7B1BC;
 }
 
@@ -40,6 +43,8 @@ nav {
 	color: #A7B1BC;
 	text-decoration: none;
 	text-transform: capitalize;
+	font-size: 14px;
+	line-height: 16px;
 }
 
 .nav__right {
@@ -67,6 +72,8 @@ nav {
 	text-transform: capitalize;
 	margin: 0;
 	line-height: 1;
+	line-height: 24px;
+	font-size: 14px;
 }
 
 .nav__item {
@@ -81,4 +88,97 @@ nav {
 }
 
 
-/*FIRST SECTION*/
+/*TOP INFO*/
+.top-info {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    background: #20252B;
+    border-radius: 5px;
+    border: 1px solid #262932;
+    margin: 10px;
+}
+
+.top__info__btc {
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+}
+
+.top__info__btc img {
+    height: 30px;
+    margin-right: 10px;
+}
+
+.top__info__btc p {
+    margin: 0;
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 32px;
+}
+
+.top__info__price {
+    margin-right: 20px;
+}
+
+.top__info__price p {
+    margin: 0;
+    font-weight: bold;
+    color: #00C076;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 24px;
+}
+
+
+.top__info__details {
+    display: flex;
+}
+
+.top__info__detail {
+    margin-right: 20px;
+    border-left: 1px solid #A7B1BC;
+    padding: 0 40px 0 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.top__info__detail img {
+    height: 20px;
+    margin-right: 10px;
+}
+
+.top__info__text {
+    display: flex;
+    align-items: center;
+}
+
+.top__info__detail .top__info__title {
+	font-size: 12px;
+	color: #A7B1BC;
+	line-height: 20px;
+}
+
+.top__info__detail .stable__price__active {
+	color: #00C076;
+	font-size: 14px;
+	line-height: 24px;
+	font-weight: 500
+}
+
+.top__info__detail .stable__price {
+	color: #fff;
+	font-size: 14px;
+	line-height: 24px;
+	font-weight: 500;
+}
+
+.top__info__detail p {
+    margin: 0;
+    color: #fff;
+}
+
+
+/*TRADING VIEW*/

@@ -9,7 +9,9 @@
 </head>
 <body>
 
-	<nav>
+
+	<!-- web nav -->
+	<nav class="web-nav">
 		<div class="nav__left">
 			<div class="nav__logo">
 				<img src="assets/img/logo.png" alt="logo" />
@@ -24,8 +26,8 @@
 		<div class="nav__right">
 			<div class="nav__user">
 				<img src="assets/img/user.png" alt="" />
-				<p>olakunle te...</p>
-				<img src="assets/img/arrow-right.png" alt="" />
+				<p class="nav__user__name">olakunle te...</p>
+				<img class="nav__user__arrow" src="assets/img/arrow-right.png" alt="" />
 			</div>
 			<div class="nav__item">
 				<img src="assets/img/globe.png" alt="" />
@@ -33,13 +35,79 @@
 			</div>
 		</div>
 	</nav>
+
+	<!-- mobile nav -->
+	<nav class="mobile-nav">
+	    <div class="nav__left">
+	        <div class="nav__logo">
+	            <img src="assets/img/logo.png" alt="logo" />
+	        </div>
+	    </div>
+
+	    <div class="nav__right">
+	        <div class="nav__user">
+	            <img src="assets/img/user.png" alt="user" />
+	        </div>
+	        <div class="nav__item">
+	            <img src="assets/img/globe.png" alt="globe" />
+	        </div>
+	        <div class="hamburger">
+	            <img src="assets/img/menu.png" alt="menu" />
+	        </div>
+	    </div>
+
+	    <ul class="nav__list">
+	        <li><a href="#" class="nav__list__active">exchange</a></li>
+	        <li><a href="#">wallets</a></li>
+	        <li><a href="#">roqqu hub</a></li>
+	    </ul>
 	</nav>
 
+
+
 	<section class="top-info">
-	    <div class="top__info__btc">
+	    <!-- <div class="top__info__btc">
 	        <img src="assets/img/topinfo/btc.png" alt="btc" />
 	        <p>btc/usdt</p>
-	    </div>
+	    </div> -->
+
+	    <div class="top__info__btc">
+		    <button id="cryptoButton">
+		        <img src="assets/img/topinfo/btc.png" alt="btc" />
+		        <p class="btc__text">btc/usdt</p>
+		    </button>
+		    <div id="cryptoDropdown" class="dropdown__content">
+		    	<p class="select__market">select market</p>
+		        <input type="text" placeholder="Search for cryptocurrency pairs..." id="cryptoSearch">
+
+		        <div class="filter-buttons">
+		            <button id="filterAll">All</button>
+		            <button id="filterUSD">USD</button>
+		            <button id="filterBTC">BTC</button>
+		        </div>
+		        <table class="trading__data btc__table" id="cryptoTable">
+				    <tbody>
+				        <tr>
+				            <td class=""><img src="assets/img/topinfo/btc.png" alt="btc" />BTC - USDT</td>
+				            <td>$23,234.6</td>
+				            <td>+0.005%</td>
+				        </tr>
+				        <tr>
+				            <td class=""><img src="assets/img/topinfo/btc.png" alt="btc" />ETH - USDT</td>
+				            <td>$23,234.6</td>
+				            <td>+0.005%</td>
+				        </tr>
+				        <tr>
+				            <td class=""><img src="assets/img/topinfo/btc.png" alt="btc" />BIN - USDT</td>
+				            <td>$23,234.6</td>
+				            <td>+0.005%</td>
+				        </tr>
+				    </tbody>
+				</table>
+
+
+		    </div>
+		</div>
 	    <div class="top__info__price">
 	        <p>$20,634</p>
 	    </div>
@@ -76,10 +144,11 @@
 	</section>
 
 
+
 	<section class="trading-view">
 		<div class="container-no-padding">		
-			<div class="row">
-				<div class="trading__chart col-lg-6">
+			<div class="row mb-5">
+				<!-- <div class="trading__chart col-lg-6 col-md-12 col-sm-12">
 					<div class="tradingview-widget-container" style="height: calc(100% - 32px); width: 100%;">
 				        <div class="tradingview-widget-container__widget" style="height: 100%; width: 100%;"></div>
 						
@@ -100,8 +169,8 @@
 						    }
 					    </script>
 				    </div>
-				</div>
-				<div class="mt-lg-0 trading__order__book col-lg-3">
+				</div> -->
+				<div class="trading__order__book col-lg-3 col-md-6 col-sm-12 col-lg-offset-2">
 					<div class="trading__order">
 						<div class="trading__order__nav">
 							<div class="order__book">
@@ -121,9 +190,9 @@
 
 						<div class="number__selection">
 					        <select>
-					            <option value="1">1</option>
-					            <option value="2">2</option>
-					            <option value="3">3</option>
+					            <option value="1">10</option>
+					            <option value="2">20</option>
+					            <option value="3">30</option>
 					        </select>
 					    </div>
 					</div>
@@ -214,7 +283,7 @@
 					</table>
 
 				</div>
-				<div class="trading__buy col-lg-3">
+				<div class="trading__buy col-lg-3 col-md-6 col-sm-12">
 					<div class="trading__order">
 						<div class="trading__order__nav">
 							<div class="order__book">
@@ -239,70 +308,154 @@
 							<input type="number" placeholder="limit price" />
 							<input type="number" placeholder="amount" />
 							<input type="number" placeholder="type" />
-							<checkbox />
-							<p>post only</p>
+							<div class="checkbox__container">
+						        <input type="checkbox"/>
+						        <p>Post only</p>
+						    </div>
 
-							<p>total</p>
-							<p>0.00</p>
+						    
+						    <div class="buy__total">
+							    <ul>
+									<li>total</li>
+									<li>0.00</li>
+								</ul>
+							</div>
 
-							<button>buy btc</button>
+							<button>buy <span>btc</span></button>
 						</form>
 
 						<div>
 
-							<table class="trading__data data__break">
-							    <thead>
-							    	<tr>
-							            <td class="buy__price">total account value</td>
-							            <td>
-							            	<select>
-								            	<option value="1">1</option>
-									            <option value="2">2</option>
-									            <option value="3">3</option>
-									        </select>
-									    </td>
-							        </tr>
-							        <tr>
-							            <td class="buy__price">open orders</td>
-							            <td>
-							            	<select>
-								            	<option value="1">1</option>
-									            <option value="2">2</option>
-									            <option value="3">3</option>
-									        </select>
-									    </td>
-							        </tr>
-
-							        <button>deposit</button>
-							    </thead>
-							</table>
-
-							<div>
-								<p>total avenue value</p>
-								
+							<div class="row data__break__section">
+							    <div class="col-lg-6 col-md-6 col-sm-6 data__break__head">
+							        <p>total account value</p>
+								</div>
+							   	<div class="col-lg-6 col-md-6 col-sm-6 text-right">
+							        <select>
+							            <option value="ngn">ngn</option>
+								        <option value="gbp">gbp</option>
+								        <option value="usd">usd</option>
+								        <option value="eur">eur</option>
+							        </select>
+							    </div>
+								<div class="col-lg-6 col-md-6 col-sm-6">
+							        <p>0.00</p>
+							    </div>
 						    </div>
-						    <p>0.00</p>
-						    <div>
-						    	<p>open orders</p>
-						    	<
+
+					        <div class="row data__break__section">
+					        	<div class="col-lg-6 col-md-6 col-sm-6 col-12 data__break__head">
+							        <p>open orders</p>
+							    </div>
+					        	<div class="col-lg-6 col-md-6 col-sm-6 col-12 text-right data__break__head">
+						            <p>available</p>
+						        </div>
+							    <div class="col-lg-6 col-md-6 col-sm-6 col-12">
+						            <p>0.00</p>
+						        </div>
+					        	<div class="col-lg-6 col-md-6 col-sm-6 col-12 text-right">
+						            <p>0.00</p>
+						        </div>
+						    	
+						    	<button>deposit</button>
 						    </div>
+
 						</div>
+					</div>
+				</div>
+				<div class="open__orders__section col-lg-6">
+					<div class="trading__order">
+						<div class="trading__order__nav">
+							<div class="order__book">
+								<p>open orders</p>
+							</div>
+							<div class="recent__trades">
+								<p>positions</p>
+							</div>
+							<div class="recent__trades">
+								<p>order-history</p>
+							</div>
+							<div class="recent__trades">
+								<p>trade history</p>
+							</div>
+						</div>
+					</div>
+					<div class="open__orders__text">
+						<p class="no__open__orders">no open orders</p>
+						<p class="open__orders__lorem">Lorem ipsum sit amet, consectetur adipiscing elit, Id pulvinar sit imperdit pulvinar.</p>
 					</div>
 				</div>
 			</div>
 		</div>
 	</section>
 
-	<section>
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-10">
-					<p>hello</p>
-				</div>
-			</div>
-		</div>
-	</section>
+	<footer class="footer">
+        <div class="footer__content">
+            <div class="footer__social">
+                <a href="#"><img src="assets/img/footer/facebook.png" alt="Facebook" /></a>
+                <a href="#"><img src="assets/img/footer/twitter.png" alt="Twitter" /></a>
+                <a href="#"><img src="assets/img/footer/instagram.png" alt="Instagram" /></a>
+            </div>
+            <p>&copy; Sisyphus. All rights reserved.</p>
+            <a href="#" class="footer__contact">Contact Us</a>
+        </div>
+    </footer>
+
+
 	
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+
+    <!-- btc dropdown -->
+    <script>
+	    document.addEventListener('DOMContentLoaded', (event) => {
+	        const cryptoButton = document.getElementById('cryptoButton');
+	        const cryptoDropdown = document.getElementById('cryptoDropdown');
+	        const cryptoSearch = document.getElementById('cryptoSearch');
+	        const cryptoTable = document.getElementById('cryptoTable');
+	        const filterAll = document.getElementById('filterAll');
+	        const filterUSD = document.getElementById('filterUSD');
+	        const filterBTC = document.getElementById('filterBTC');
+
+	        cryptoButton.addEventListener('click', (event) => {
+	            cryptoDropdown.style.display = cryptoDropdown.style.display === 'block' ? 'none' : 'block';
+	            event.stopPropagation();
+	        });
+
+	        cryptoDropdown.addEventListener('click', (event) => {
+	            event.stopPropagation();
+	        });
+
+	        window.addEventListener('click', (event) => {
+	            if (!cryptoButton.contains(event.target)) {
+	                cryptoDropdown.style.display = 'none';
+	            }
+	        });
+
+	        cryptoSearch.addEventListener('input', () => {
+	            const filter = cryptoSearch.value.toLowerCase();
+	            const rows = cryptoTable.getElementsByTagName('tr');
+	            Array.from(rows).forEach((row) => {
+	                const firstCellText = row.cells[0].textContent || row.cells[0].innerText;
+	                row.style.display = firstCellText.toLowerCase().includes(filter) ? '' : 'none';
+	            });
+	        });
+
+	        const filterTable = (currency) => {
+	            const rows = cryptoTable.getElementsByTagName('tr');
+	            Array.from(rows).forEach((row) => {
+	                const firstCellText = row.cells[0].textContent || row.cells[0].innerText;
+	                row.style.display = currency === 'All' || firstCellText.includes(currency) ? '' : 'none';
+	            });
+	        };
+
+	        filterAll.addEventListener('click', () => filterTable('All'));
+	        filterUSD.addEventListener('click', () => filterTable('USD'));
+	        filterBTC.addEventListener('click', () => filterTable('BTC'));
+	    });
+	</script>
+
+
+
 </body>
 </html>

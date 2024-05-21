@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gravatar</title>
+    <link rel="stylesheet" type="text/css" href="assets/style.css">
+</head>
+<body>
+    <div class="auth-container">
+        <h2>Authenticate</h2>
+        <form id="authForm">
+            <input type="email" id="email" placeholder="Enter your email" required>
+            <button type="submit">Submit</button>
+        </form>
+        <img id="gravatar" src="" alt="Gravatar" style="display: none;">
+        <div class="repos" id="repos" style="display: none;">
+            <h3>GitHub Repositories</h3>
+            <ul id="repoList"></ul>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('authForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const email = document.getElementById('email').value;
+            fetchGravatar(email);
+            fetchGitHubRepos(email);
+        });
+
+        function fetchGravatar(email) {
+            const hash = md5(email.trim().toLowerCase());
+            const gravatarUrl = `https://www.gravatar.com/avatar/${hash}`;
+            document.getElementById('gravatar').src = gravatarUrl;
+            document.getElementById('gravatar').style.display = 'block';
+        }
+
+        async function fetchGitHubRepos(email) {
+            const response = await fetch(`https://api.github.com/search/users?q=${email}+in:email`);
+            const data = await response.json();
+            if (data.items && data.items.length > 0) {
+                const username = data.items[0].login;
+                const reposResponse = await fetch(`https://api.github.com/users/${username}/repos`);
+                const repos = await reposResponse.json();
+                const repoList = document.getElementById('repoList');
+                repoList.innerHTML = '';
+                repos.forEach(repo => {
+                    const li = document.createElement('li');
+                    li.textContent = repo.name;
+                    repoList.appendChild(li);
+                });
+                document.getElementById('repos').style.display = 'block';
+            } else {
+                alert('No GitHub account associated with this email.');
+            }
+        }
+
+        // Simple MD5 hash function
+        function md5(string) {
+            return crypto.subtle.digest("MD5", new TextEncoder().encode(string)).then(buf => {
+                return Array.from(new Uint8Array(buf)).map(b => b.toString(16).padStart(2, '0')).join('');
+            });
+        }
+    </script>
+</body>
+</html>

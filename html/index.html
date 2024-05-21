@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Raven</title>
+	<title>Sisyphus</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="assets/style.css">
 </head>
@@ -78,10 +78,13 @@
 		    </button>
 		    <div id="cryptoDropdown" class="dropdown__content">
 		    	<p class="select__market">select market</p>
-		        <input type="text" placeholder="Search for cryptocurrency pairs..." id="cryptoSearch">
+		    	<div class="search-container">
+			        <input type="text" placeholder="Search" id="cryptoSearch">
+			        <img width="32" height="32" src="assets/img/search.png" alt="search icon" class="search-icon">
+			    </div>
 
 		        <div class="filter-buttons">
-		            <button id="filterAll">All</button>
+		            <button id="filterAll" class="active">All</button>
 		            <button id="filterUSD">USD</button>
 		            <button id="filterBTC">BTC</button>
 		        </div>
@@ -148,7 +151,7 @@
 	<section class="trading-view">
 		<div class="container-no-padding">		
 			<div class="row mb-5">
-				<!-- <div class="trading__chart col-lg-6 col-md-12 col-sm-12">
+				<div class="trading__chart col-lg-6 col-md-12 col-sm-12">
 					<div class="tradingview-widget-container" style="height: calc(100% - 32px); width: 100%;">
 				        <div class="tradingview-widget-container__widget" style="height: 100%; width: 100%;"></div>
 						
@@ -169,7 +172,7 @@
 						    }
 					    </script>
 				    </div>
-				</div> -->
+				</div>
 				<div class="trading__order__book col-lg-3 col-md-6 col-sm-12 col-lg-offset-2">
 					<div class="trading__order">
 						<div class="trading__order__nav">
@@ -305,11 +308,11 @@
 
 					<div>
 						<form>
-							<input type="number" placeholder="limit price" />
-							<input type="number" placeholder="amount" />
+							<input type="number" id="limitPrice" placeholder="limit price" />
+							<input type="number" id="amount" placeholder="amount" />
 							<input type="number" placeholder="type" />
 							<div class="checkbox__container">
-						        <input type="checkbox"/>
+						        <input type="checkbox" id="postOnly"/>
 						        <p>Post only</p>
 						    </div>
 
@@ -317,11 +320,11 @@
 						    <div class="buy__total">
 							    <ul>
 									<li>total</li>
-									<li>0.00</li>
+									<li id="totalValue">0.00</li>
 								</ul>
 							</div>
 
-							<button>buy <span>btc</span></button>
+							<button type="button" id="buyButton">buy <span>btc</span></button>
 						</form>
 
 						<div>
@@ -331,12 +334,14 @@
 							        <p>total account value</p>
 								</div>
 							   	<div class="col-lg-6 col-md-6 col-sm-6 text-right">
-							        <select>
-							            <option value="ngn">ngn</option>
-								        <option value="gbp">gbp</option>
-								        <option value="usd">usd</option>
-								        <option value="eur">eur</option>
-							        </select>
+							   		<div class="custom-select">
+								        <select id="currencySelect">
+								            <option value="ngn" data-image="assets/img/ngn.png"><img src="assets/img/ngn.png" alt="ngn" />ngn</option>
+									        <option value="gbp">gbp</option>
+									        <option value="usd">usd</option>
+									        <option value="eur">eur</option>
+								        </select>
+								    </div>
 							    </div>
 								<div class="col-lg-6 col-md-6 col-sm-6">
 							        <p>0.00</p>
@@ -455,6 +460,43 @@
 	    });
 	</script>
 
+	<!-- javascript task 2 -->
+	<script>
+		document.addEventListener('DOMContentLoaded', (event) => {
+		    const limitPriceInput = document.getElementById('limitPrice');
+		    const amountInput = document.getElementById('amount');
+		    const totalValueElement = document.getElementById('totalValue');
+
+		    function calculateTotal() {
+		        const price = parseFloat(limitPriceInput.value) || 0;
+		        const amount = parseFloat(amountInput.value) || 0;
+		        const total = price * amount;
+		        totalValueElement.textContent = total.toFixed(2);
+		    }
+
+		    limitPriceInput.addEventListener('input', calculateTotal);
+		    amountInput.addEventListener('input', calculateTotal);
+
+		    document.getElementById('buyButton').addEventListener('click', () => {
+		        const price = limitPriceInput.value;
+		        const amount = amountInput.value;
+		        const postOnly = document.getElementById('postOnly').checked;
+		        const total = totalValueElement.textContent;
+
+		        // Log the input values or send them to your server
+		        console.log('Price:', price);
+		        console.log('Amount:', amount);
+		        console.log('Post Only:', postOnly);
+		        console.log('Total:', total);
+
+		        // Additional functionality for the buy button can be added here
+		    });
+		});
+
+	</script>
+
+
+	
 
 
 </body>

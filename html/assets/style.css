@@ -345,9 +345,17 @@ body {
 
 .dropdown__content input {
     width: 100%;
-    padding: 10px;
+    padding: 10px 0 10px 50px;
     margin-bottom: 10px;
     box-sizing: border-box;
+    background-color: transparent;
+    /*background-image: url('assets/img/search.png');
+    background-position: 10px 10px; 
+    background-repeat: no-repeat;*/
+    border-radius: 8px;
+    padding-left: 16px;
+    border: 1px solid #20252b;
+    color: #fff;
 }
 
 .dropdown__content ul {
@@ -366,6 +374,26 @@ body {
     background-color: #575757;
 }
 
+.search-container {
+    position: relative;
+    width: 100%;
+}
+
+.search-container input {
+    width: 100%;
+    padding: 10px 40px 10px 50px;
+    box-sizing: border-box;
+}
+
+.search-icon {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 20px;
+    pointer-events: none;
+}
+
 .btc__table td {
     color: #a7b1bc;
     font-size: 14px;
@@ -375,21 +403,31 @@ body {
 .btc__table td:first-child {
     display: flex;
     align-items: center;
-    justify-content: flex-start; /* Aligns the first cell content to the left */
+    justify-content: flex-start;
 }
 
 .filter-buttons {
+    border-top: 1px solid #394047;
+    border-bottom: 1px solid #394047;
     display: flex;
-    justify-content: space-around;
     margin-bottom: 10px;
+}
+
+.filter-buttons button .active {
+    background: #353945;
+    color: #fff;
+}
+
+.filter-buttons button:hover {
+    background-color: #353945;
 }
 
 .filter-buttons button {
     padding: 5px 10px;
     border: none;
     border-radius: 5px;
-    background-color: #00C076;
-    color: #fff;
+    background: transparent;
+    color: #a7b1bc;
     cursor: pointer;
 }
 
@@ -847,13 +885,58 @@ body {
     text-align: right;
 }
 
+/*.data__break__section select {
+    background: transparent;
+    color: #a7b1bc;
+    text-transform: uppercase;
+    font-size: 12px;
+    border: none;
+}*/
+
 .data__break__section select {
     background: transparent;
     color: #a7b1bc;
     text-transform: uppercase;
     font-size: 12px;
     border: none;
+    width: 60px;
+    padding: 10px;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url('assets/img/arrow-down.png');
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 10px;
+    border-radius: 5px;
 }
+
+.custom-select {
+    position: relative;
+}
+
+.custom-select:after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 5px solid #a7b1bc;
+    transform: translateY(-50%);
+    pointer-events: none;
+}
+
+.data__break__section select option {
+    background: #2a2f36; /* Custom background color for options */
+    color: #a7b1bc;
+    padding: 10px;
+}
+
+
+
 
 .data__break__section button {
     background: #2764ff;
@@ -887,13 +970,22 @@ body {
     list-style: none;
 }
 
-.trading__action li {
-    display: inline;
-    margin-right: 10px;
-    padding: 0 20px;
-    color: #fff;
-    text-align: center;
+@media (min-width: 768px) {
+    .trading__action li {
+        padding: 0 10px;
+        margin-right: 10px;
+        display: inline;
+        color: #fff;
+        text-align: center;
+    }
 }
+
+@media (max-width: 767px) {
+    .trading__action li {
+        padding: 0 20px;
+    }
+}
+
 
 .trading__action li:hover {
     background: #353945;

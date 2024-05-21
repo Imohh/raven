@@ -700,6 +700,31 @@ body {
     box-sizing: border-box;
 }
 
+.trading__order__navs {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    background: #12171D;
+    padding: 2px;
+    border-radius: 5px;
+    width: 100%;
+    box-sizing: border-box;
+    overflow-x: auto;
+    white-space: nowrap;
+}
+
+@media (max-width: 768px) {
+    .trading__order__navs {
+        justify-content: flex-start;
+    }
+}
+
+.trading__order__navs > div {
+    margin-right: 20px;
+    flex: 0 0 auto;
+}
+
 .order__book {
 	background: #21262C;
 	border-radius: 5px;
@@ -739,6 +764,11 @@ body {
 .trading__order__nav p {
 	color:#fff;
 	text-transform: capitalize;
+}
+
+.trading__order__navs p {
+    color:#fff;
+    text-transform: capitalize;
 }
 
 .trading__order__nav > div {
@@ -904,7 +934,7 @@ body {
     appearance: none;
     -webkit-appearance: none;
     -moz-appearance: none;
-    background-image: url('assets/img/arrow-down.png');
+/*    background-image: url('../assets/img/arrow-down.png');*/
     background-repeat: no-repeat;
     background-position: right 10px center;
     background-size: 10px;
@@ -980,7 +1010,8 @@ body {
 
 @media (max-width: 767px) {
     .trading__action li {
-        padding: 0 20px;
+        padding: 0 5px;
+        display: inline;
     }
 }
 
@@ -995,8 +1026,8 @@ body {
 
 .trading__action li a {
 	text-decoration: none;
-	text-transform: capitalize;
-    color: #fff;
+    color: #777e90;
+    font-size: 14px;
     padding: 5px 15px;
 }
 
@@ -1004,6 +1035,7 @@ body {
 	background: #353945;
     border: 1px solid #353945;
     border-radius: 20px;
+    color:#fff;
 /*    padding: 5px 20px;*/
 }
 

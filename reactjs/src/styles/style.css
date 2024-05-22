@@ -1,3 +1,9 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
     background-color: #1C2127;
 }
@@ -208,6 +214,28 @@ body {
         padding: 10px 20px;
         background: #20252B;
         color: #fff;
+    }
+
+    .mobile-dropdown {
+      position: absolute;
+      top: 7%;
+      left: 0;
+      width: 100%;
+      background-color: #20252b;
+      color: #fff;
+      box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+      z-index: 2;
+    }
+
+    .mobile-dropdown ul li {
+        list-style: none;padding: 10px;
+    }
+
+    .mobile-dropdown ul li a {
+        text-decoration: none;
+        color: #fff;
+        text-transform: capitalize;
+
     }
 
     .nav__left .nav__logo img {
@@ -702,7 +730,7 @@ body {
 
 .trading__order__navs {
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     height: 100%;
     background: #12171D;
@@ -1236,6 +1264,7 @@ form button span {
 .mobile-view {
   display: none; /* Hide by default */
   padding: 0 10px;
+  margin-bottom: 10px;
 }
 
 /* Web view */
@@ -1264,4 +1293,34 @@ form button span {
   .web-view {
     display: block;
   }
+}
+
+
+/*WALLETS*/
+.wallets {
+    height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.wallets p {
+    color: #fff;
+    font-weight: 700;
+    text-align: center;
+    text-transform: capitalize;
+}
+
+.roqqu-hub {
+    height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.roqqu-hub p {
+    color: #fff;
+    font-weight: 700;
+    text-align: center;
+    text-transform: capitalize;
 }

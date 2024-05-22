@@ -1,4 +1,5 @@
-import React from 'react'
+import React, {useState} from 'react'
+import { Link } from 'react-router-dom'
 import globe from "../assets/img/globe.png"
 import signout from "../assets/img/signout.png"
 import arrowRight from "../assets/img/arrow-right.png"
@@ -7,6 +8,12 @@ import user from "../assets/img/user.png"
 import menu from "../assets/img/menu.png"
 
 const Navbar = () => {
+	const [show, setShow] = useState(false)
+
+	const toggleMobileMenu = () => {
+	    setShow(!show);
+	};
+
 	return (
 		<>
 		<nav className="web-nav">
@@ -15,9 +22,21 @@ const Navbar = () => {
 					<img src={logo} alt="logo" />
 				</div>
 				<ul className="nav__list">
-					<li><a href="#" className="nav__list__active">exchange</a></li>
-					<li><a href="#">wallets</a></li>
-					<li><a href="#">roqqu hub</a></li>
+					<li>
+						<Link to="/" className="nav__list__active">
+                  			Exchange
+		                </Link>
+		            </li>
+					<li>
+						<Link to="/wallets">
+							wallets
+						</Link>
+					</li>
+					<li>
+						<Link to="/roqqu-hub">
+							roqqu hub
+						</Link>
+					</li>
 				</ul>
 			</div>
 
@@ -50,16 +69,34 @@ const Navbar = () => {
 	        <div className="nav__item">
 	            <img src={globe} alt="globe" />
 	        </div>
-	        <div className="hamburger">
+	        <div className="hamburger" onClick={toggleMobileMenu}>
 	            <img src={menu} alt="menu" />
 	        </div>
 	    </div>
 
-	    <ul className="nav__list">
-	        <li><a href="#" className="nav__list__active">exchange</a></li>
-	        <li><a href="#">wallets</a></li>
-	        <li><a href="#">roqqu hub</a></li>
-	    </ul>
+
+	    {show && 
+			<div className="mobile-dropdown">
+				<ul>
+			        <li>
+						<Link to="/" className="nav__list__active">
+		           			Exchange
+		                </Link>
+		            </li>
+					<li>
+						<Link to="/wallets">
+							wallets
+						</Link>
+					</li>
+					<li>
+						<Link to="/roqqu-hub">
+							roqqu hub
+						</Link>
+					</li>
+			    </ul>
+		    </div>
+		}
+	    
 	</nav>
 
 	</>

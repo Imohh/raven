@@ -13,7 +13,7 @@ const Footer = () => {
                 <a href="#"><img src={instagram} alt="Instagram" /></a>
             </div>
             <p>&copy; Sisyphus. All rights reserved.</p>
-            <a href="#" class="footer__contact">Contact Us</a>
+            <a href="#" className="footer__contact">Contact Us</a>
         </div>
     </footer>
 	)

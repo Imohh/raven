@@ -124,7 +124,7 @@ const TradingAction = () => {
 	              href="#"
 	              onClick={() => handleFormSelection('limit')}
 	            >
-	              limit
+	              Limit
 	            </a>
 	          </li>
 	          <li>
@@ -133,7 +133,7 @@ const TradingAction = () => {
 	              href="#"
 	              onClick={() => handleFormSelection('market')}
 	            >
-	              market
+	              Market
 	            </a>
 	          </li>
 	          <li>
@@ -142,7 +142,7 @@ const TradingAction = () => {
 	              href="#"
 	              onClick={() => handleFormSelection('stop-limit')}
 	            >
-	              stop-limit
+	              Stop-Limit
 	            </a>
 	          </li>
 	        </ul>

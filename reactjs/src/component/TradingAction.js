@@ -106,15 +106,15 @@ const TradingAction = () => {
   return (
   	<div className="trading__buy col-lg-3 col-md-6 col-sm-12">
   		<div className="trading__order">
- 						<div className="trading__order__nav">
- 							<div className="order__book">
- 								<p>buy</p>
- 							</div>
- 							<div className="recent__trades">
- 								<p>sell</p>
- 							</div>
- 						</div>
- 					</div>
+ 			<div className="trading__order__nav">
+ 				<div className="order__book">
+ 					<p>buy</p>
+ 				</div>
+ 				<div className="recent__trades">
+ 					<p>sell</p>
+ 				</div>
+ 			</div>
+ 		</div>
 	    <div className="trading__container">
 	      <div className="trading__action">
 	        <ul>

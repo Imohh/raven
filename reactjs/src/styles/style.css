@@ -734,6 +734,15 @@ body {
     cursor: pointer;
 }
 
+.trading__action__active {
+    background: #21262C;
+    border-radius: 5px;
+    padding: 0 20px;
+    flex: 1;
+    text-align: center;
+    cursor: pointer;
+}
+
 .order__book p {
 	font-size: 12px;
 	font-weight: 500;
@@ -1032,9 +1041,9 @@ body {
 }
 
 .trading__action__active {
-	background: #353945;
+	background: #21262C;
     border: 1px solid #353945;
-    border-radius: 20px;
+    border-radius: 5px;
     color:#fff;
 /*    padding: 5px 20px;*/
 }
@@ -1216,4 +1225,43 @@ form button span {
     margin: 0;
     flex-grow: 1;
     text-align: center;
+}
+
+
+/*MOBILE CONTENT*/
+
+
+
+/* Mobile view */
+.mobile-view {
+  display: none; /* Hide by default */
+  padding: 0 10px;
+}
+
+/* Web view */
+.web-view {
+  display: block; /* Show by default */
+}
+
+/* Media queries for responsive design */
+@media (max-width: 768px) {
+  /* Show mobile view and hide web view on small screens */
+  .mobile-view {
+    display: block;
+  }
+
+  .web-view {
+    display: none;
+  }
+}
+
+@media (min-width: 769px) {
+  /* Show web view and hide mobile view on large screens */
+  .mobile-view {
+    display: none;
+  }
+
+  .web-view {
+    display: block;
+  }
 }
